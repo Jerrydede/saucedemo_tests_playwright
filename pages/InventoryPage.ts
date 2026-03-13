@@ -9,6 +9,8 @@ export class InventoryPage {
   readonly inventoryItems: Locator;
   readonly cartBadge: Locator;
   readonly cartLink: Locator;
+  readonly menuButton: Locator;
+  readonly logoutLink: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -18,6 +20,8 @@ export class InventoryPage {
     this.cartBadge = page.locator('.shopping_cart_badge');
     // The link to navigate to the cart page
     this.cartLink = page.locator('.shopping_cart_link');
+    this.menuButton = page.locator('#react-burger-menu-btn');
+    this.logoutLink = page.locator('#logout_sidebar_link');
   }
 
   /**
@@ -43,4 +47,13 @@ export class InventoryPage {
   async removeItemFromCart(productKey: string) {
     await this.page.locator(`[data-test="remove-${productKey}"]`).click();
   }
+
+  /**
+   * Performs the logout action by opening the side menu first.
+  */
+  async logout() {
+    await this.menuButton.click();
+    await this.logoutLink.click();
+  }
+
 }
