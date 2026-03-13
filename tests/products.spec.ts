@@ -31,7 +31,7 @@ test.describe('Product Catalog Regression', () => {
     const productKey = 'sauce-labs-backpack';
 
     // Step 1: Add item and verify badge count
-    await inventoryPage.addItemToCart(productKey);
+    await inventoryPage.addItemAndGetPrice(productKey);
     await expect(inventoryPage.cartBadge).toHaveText('1');
 
     // Step 2: Remove item and verify badge is gone
@@ -49,7 +49,7 @@ test.describe('Product Catalog Regression', () => {
     // Part1: add all items
     // Iterate through the product list from testData.ts
     for (let i = 0; i < products.length; i++) {
-      await inventoryPage.addItemToCart(products[i]);
+      await inventoryPage.addItemAndGetPrice(products[i]);
       
       // Calculate expected count (index starts at 0, so we add 1)
       const expectedCount = (i + 1).toString();

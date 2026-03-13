@@ -22,7 +22,7 @@ test.describe('Cart Content Regression', () => {
    */
   test('should display all 6 products in the cart view', async () => {
     for (const productKey of TEST_DATA.products) {
-      await inventoryPage.addItemToCart(productKey);
+      await inventoryPage.addItemAndGetPrice(productKey);
     }
     await inventoryPage.cartLink.click();
     
@@ -44,7 +44,7 @@ test.describe('Cart Content Regression', () => {
    * REG-10: Verify transition to the checkout flow.
    */
   test('should proceed to checkout step one when items are present', async ({ page }) => {
-    await inventoryPage.addItemToCart(TEST_DATA.products[0]);
+    await inventoryPage.addItemAndGetPrice(TEST_DATA.products[0]);
     await inventoryPage.cartLink.click();
     
     await cartPage.checkoutButton.click();
