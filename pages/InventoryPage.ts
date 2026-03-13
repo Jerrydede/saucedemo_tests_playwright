@@ -21,11 +21,19 @@ export class InventoryPage {
   }
 
   /**
-   * Adds a specific product to the cart using its unique data-test attribute.
+   * Adds a specific product to the cart using its unique data-test attribute and return its price as a number.
    * @param productKey - The unique suffix of the data-test attribute (e.g., 'sauce-labs-backpack').
    */
-  async addItemToCart(productKey: string) {
+  async addItemAndGetPrice(productKey: string): Promise<number> {
+    // Locate the price element related to this specific product
+    const priceText = await this.page
+      .locator(`.inventory_item:has([data-test="add-to-cart-${productKey}"]) .inventory_item_price`)
+      .innerText();
+    
     await this.page.locator(`[data-test="add-to-cart-${productKey}"]`).click();
+    
+    // Convert "$29.99" -> 29.99
+    return parseFloat(priceText.replace('$', ''));
   }
 
   /**
