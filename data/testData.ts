@@ -11,5 +11,14 @@ export const TEST_DATA = {
     error: 'error_user',
     visual: 'visual_user',
     notAvailable: 'not_available_user' //added for negative testing, it is not in the pre-defined list of users.
-  }
+  },
+  // Unique keys for the data-test attributes
+  products: [
+    'sauce-labs-backpack',
+    'sauce-labs-bike-light',
+    'sauce-labs-bolt-t-shirt',
+    'sauce-labs-fleece-jacket',
+    'sauce-labs-onesie',
+    'test.allthethings()-t-shirt-(red)'
+  ]
 };

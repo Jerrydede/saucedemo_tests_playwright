@@ -38,4 +38,44 @@ test.describe('Product Catalog Regression', () => {
     await inventoryPage.removeItemFromCart(productKey);
     await expect(inventoryPage.cartBadge).toHaveCount(0);
   });
+
+  /**
+   * REG-07: Shopping Cart Accumulation & Deletion Regression
+   * Verify that the cart badge correctly increments to 6 as all products are added and then decrements back to 0
+   */
+  test('should correctly increment cart badge when adding all products', async () => {
+    const products = TEST_DATA.products;
+    
+    // Part1: add all items
+    // Iterate through the product list from testData.ts
+    for (let i = 0; i < products.length; i++) {
+      await inventoryPage.addItemToCart(products[i]);
+      
+      // Calculate expected count (index starts at 0, so we add 1)
+      const expectedCount = (i + 1).toString();
+      
+      // Verification: Check if the badge updates correctly after each click
+      await expect(inventoryPage.cartBadge).toHaveText(expectedCount);
+    }
+
+    // Part2: remove all items
+    // We loop backwards to simulate a natural removal process
+    for (let i = products.length - 1; i >= 0; i--) {
+      // The product index is i
+      await inventoryPage.removeItemFromCart(products[i]);
+      
+      // Calculate expected count
+      const expectedCount = i.toString();
+      
+      if (i > 0) {
+        // Verification: Check if the badge updates correctly after each click
+      await expect(inventoryPage.cartBadge).toHaveText(expectedCount);
+      } else {
+        // For the last item, we expect the badge to be gone
+        await expect(inventoryPage.cartBadge).toHaveCount(0);
+      }
+      
+    }
+
+  });
 });
