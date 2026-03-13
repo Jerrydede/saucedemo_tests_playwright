@@ -20,5 +20,11 @@ export const TEST_DATA = {
     'sauce-labs-fleece-jacket',
     'sauce-labs-onesie',
     'test.allthethings()-t-shirt-(red)'
-  ]
+  ],
+  // Centralized customer data
+  customer: {
+    firstName: 'Max',
+    lastName: 'Mustermann',
+    zipCode: '12345'
+  }
 };
