@@ -1,5 +1,10 @@
 import { Page, Locator, expect } from '@playwright/test';
 
+
+/**
+ * Represents the Login Page of the SauceDemo shop.
+ * Handles authentication and error messaging.
+ */
 export class LoginPage {
   readonly page: Page;
   readonly usernameInput: Locator;
@@ -19,6 +24,11 @@ export class LoginPage {
     await this.page.goto('https://www.saucedemo.com/');
   }
 
+/**
+ * Performs login with given credentials
+ * @param user - The username from the accepted user list.
+ * @param pass - The secret_sauce password.
+ */
   async login(user: string, pass: string) {
     await this.usernameInput.fill(user);
     await this.passwordInput.fill(pass);
