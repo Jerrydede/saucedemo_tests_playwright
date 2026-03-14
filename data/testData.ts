@@ -1,6 +1,5 @@
-//Exported objects containing the 7 usernames, the password, and item names.
-
 export const TEST_DATA = {
+  baseUrl: 'https://www.saucedemo.com/',
   password: 'secret_sauce',
   invalidPassword: 'invalid_password',
   users: {
@@ -26,5 +25,11 @@ export const TEST_DATA = {
     firstName: 'Max',
     lastName: 'Mustermann',
     zipCode: '12345'
-  }
+  },
+
+  // Centralized strings for assertions
+  errorMessages: {
+    lockedOut: 'Epic sadface: Sorry, this user has been locked out.',
+    invalidCredentials: 'Epic sadface: Username and password do not match any user in this service'
+  },
 };
