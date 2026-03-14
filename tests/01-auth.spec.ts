@@ -42,7 +42,7 @@ test.describe('Authentication Regression Test Suite', () => {
     await loginPage.login(TEST_DATA.users.lockedOut, TEST_DATA.password);
     
     await expect(loginPage.errorMessage).toBeVisible();
-    await expect(loginPage.errorMessage).toContainText('Sorry, this user has been locked out.');
+    await expect(loginPage.errorMessage).toContainText(TEST_DATA.errorMessages.lockedOut);
   });
 
   /**
@@ -52,7 +52,7 @@ test.describe('Authentication Regression Test Suite', () => {
     await loginPage.login(TEST_DATA.users.standard, TEST_DATA.invalidPassword);
     
     await expect(loginPage.errorMessage).toBeVisible();
-    await expect(loginPage.errorMessage).toContainText('Epic sadface: Username and password do not match any user in this service');
+    await expect(loginPage.errorMessage).toContainText(TEST_DATA.errorMessages.invalidCredentials);
   });
 
   /**
@@ -62,7 +62,7 @@ test.describe('Authentication Regression Test Suite', () => {
     await loginPage.login(TEST_DATA.users.notAvailable, TEST_DATA.password);
     
     await expect(loginPage.errorMessage).toBeVisible();
-    await expect(loginPage.errorMessage).toContainText('Epic sadface: Username and password do not match any user in this service');
+    await expect(loginPage.errorMessage).toContainText(TEST_DATA.errorMessages.invalidCredentials);
   });
 
   /**
@@ -76,7 +76,7 @@ test.describe('Authentication Regression Test Suite', () => {
     await inventoryPage.logout();
 
     // Step 3: Assertions
-    await expect(page).toHaveURL('https://www.saucedemo.com/');
+    await expect(page).toHaveURL(TEST_DATA.baseUrl);
     await expect(loginPage.loginButton).toBeVisible();
   });
 });

@@ -1,5 +1,5 @@
 import { Page, Locator, expect } from '@playwright/test';
-
+import { TEST_DATA } from '../data/testData';
 
 /**
  * Represents the Login Page of the SauceDemo shop.
@@ -21,7 +21,7 @@ export class LoginPage {
   }
 
   async goto() {
-    await this.page.goto('https://www.saucedemo.com/');
+    await this.page.goto(TEST_DATA.baseUrl);
   }
 
 /**
