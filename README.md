@@ -34,3 +34,24 @@ This project follows the **Page Object Model (POM)** to ensure the code is maint
     ```bash
     npx playwright install --with-deps
     ```
+
+## Running Tests
+
+* **Run all tests (Headless):**
+    ```bash
+    npx playwright test
+    ```
+* **Run in UI Mode:**
+    ```bash
+    npx playwright test --ui
+    ```
+* **Generate Report:**
+    ```bash
+    npx playwright show-report
+    ```
+
+## Continuous Integration (CI)
+
+This project is integrated with **GitHub Actions**. The pipeline runs on every push and pull request to the main branch.
+
+* **Automated Artifacts**: The Playwright HTML report is automatically uploaded on every run, allowing for easy debugging of CI failures.
