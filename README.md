@@ -16,3 +16,21 @@ This project follows the **Page Object Model (POM)** to ensure the code is maint
 * **Dynamic Cart Logic**: Includes a robust test that adds/removes multiple items via a loop, verifying that the cart badge updates dynamically and disappears when the cart is empty.
 * **Price Integrity**: Automatically captures individual product prices and verifies that the Checkout Overview correctly calculates the **Subtotal**, **Tax**, and **Total**.
 * **Session Management**: Includes a dedicated logout flow via the sidebar menu to ensure secure session termination.
+
+## Installation & Setup
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <your-repo-url>
+    cd <project-folder>
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Install Playwright Browsers:**
+    ```bash
+    npx playwright install --with-deps
+    ```
