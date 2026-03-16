@@ -9,3 +9,10 @@ This project follows the **Page Object Model (POM)** to ensure the code is maint
 * **Page Objects (`/pages`)**: Encapsulates UI locators and common actions (e.g., `login()`, `logout()`, `handleCart()`).
 * **Data-Driven Testing (`/data`)**: All environment URLs, user credentials, and expected error strings are centralized in `testData.ts`.
 * **Atomic Assertions**: Each test is independent. We use `beforeEach` hooks to initialize page objects and navigate, ensuring a clean state for every test case.
+
+## Key Regression Features
+
+* **Multi-User Authentication**: Validates various user personas (Standard, Problem, Performance) and ensures proper error handling for locked-out users.
+* **Dynamic Cart Logic**: Includes a robust test that adds/removes multiple items via a loop, verifying that the cart badge updates dynamically and disappears when the cart is empty.
+* **Price Integrity**: Automatically captures individual product prices and verifies that the Checkout Overview correctly calculates the **Subtotal**, **Tax**, and **Total**.
+* **Session Management**: Includes a dedicated logout flow via the sidebar menu to ensure secure session termination.
