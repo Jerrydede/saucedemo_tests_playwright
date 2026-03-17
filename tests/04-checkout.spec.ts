@@ -22,7 +22,7 @@ test.describe('Final Checkout Regression', () => {
   });
 
   /**
-   * REG-11: Verify full checkout flow from info entry to order completion.
+   * REG-12: Verify full checkout flow from info entry to order completion.
    */
   test('should complete the purchase successfully', async () => {
     // Setup: Add one item and go to cart
@@ -42,7 +42,7 @@ test.describe('Final Checkout Regression', () => {
   });
 
   /**
-   * REG-12: Verify the summary prices
+   * REG-13: Verify the summary prices
    */
   test('should verify that the subtotal matches the sum of added products', async () => {
     // 1. Add items and track their prices dynamically

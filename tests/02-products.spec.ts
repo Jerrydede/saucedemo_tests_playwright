@@ -16,7 +16,7 @@ test.describe('Product Catalog Regression', () => {
   });
 
   /**
-   * REG-05: Verify that the product list is populated and visible.
+   * REG-06: Verify that the product list is populated and visible.
    */
   test('should display the product list', async () => {
     const itemCount = await inventoryPage.inventoryItems.count();
@@ -25,7 +25,7 @@ test.describe('Product Catalog Regression', () => {
   });
 
   /**
-   * REG-06: Verify the full cycle of adding and removing an item.
+   * REG-07: Verify the full cycle of adding and removing an item.
    */
   test('should add and then remove an item from the cart', async () => {
     const productKey = 'sauce-labs-backpack';
@@ -40,7 +40,7 @@ test.describe('Product Catalog Regression', () => {
   });
 
   /**
-   * REG-07: Shopping Cart Accumulation & Deletion Regression
+   * REG-08: Shopping Cart Accumulation & Deletion Regression
    * Verify that the cart badge correctly increments to 6 as all products are added and then decrements back to 0
    */
   test('should correctly increment cart badge when adding all products', async () => {

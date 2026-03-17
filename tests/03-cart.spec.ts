@@ -18,7 +18,7 @@ test.describe('Cart Content Regression', () => {
   });
 
   /**
-   * REG-08: Verify cart integrity with a full product set.
+   * REG-09: Verify cart integrity with a full product set.
    */
   test('should display all 6 products in the cart view', async () => {
     for (const productKey of TEST_DATA.products) {
@@ -32,7 +32,7 @@ test.describe('Cart Content Regression', () => {
   });
 
   /**
-   * REG-09: Verify navigation logic from the cart.
+   * REG-10: Verify navigation logic from the cart.
    */
   test('should allow navigating back to inventory to continue shopping', async ({ page }) => {
     await inventoryPage.cartLink.click();
@@ -41,7 +41,7 @@ test.describe('Cart Content Regression', () => {
   });
 
   /**
-   * REG-10: Verify transition to the checkout flow.
+   * REG-11: Verify transition to the checkout flow.
    */
   test('should proceed to checkout step one when items are present', async ({ page }) => {
     await inventoryPage.addItemAndGetPrice(TEST_DATA.products[0]);
