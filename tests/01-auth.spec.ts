@@ -38,7 +38,7 @@ test.describe('Authentication Regression Test Suite', () => {
   /**
    * REG-02: Ensure account security by verifying locked_out status
    */
-  test('should show error for locked_out_user', async () => {
+  test('should show error for locked_out_user', async ({ page }) => {
     await loginPage.login(TEST_DATA.users.lockedOut, TEST_DATA.password);
     
     await expect(loginPage.errorMessage).toBeVisible();
@@ -48,7 +48,7 @@ test.describe('Authentication Regression Test Suite', () => {
   /**
    * REG-03: Verify unsuccessful login with invalid password
    */
-  test('should show error for invalid password', async () => {
+  test('should show error for invalid password', async ({ page }) => {
     await loginPage.login(TEST_DATA.users.standard, TEST_DATA.invalidPassword);
     
     await expect(loginPage.errorMessage).toBeVisible();
@@ -58,7 +58,7 @@ test.describe('Authentication Regression Test Suite', () => {
   /**
    * REG-04: Verify unsuccessful login with not available user
    */
-  test('should show error for not available user', async () => {
+  test('should show error for not available user', async ({ page }) => {
     await loginPage.login(TEST_DATA.users.notAvailable, TEST_DATA.password);
     
     await expect(loginPage.errorMessage).toBeVisible();
