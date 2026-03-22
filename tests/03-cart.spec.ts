@@ -26,6 +26,11 @@ test.describe('Cart Content Regression', () => {
     }
     await inventoryPage.cartLink.click();
     
+    // Verify two products in cart
+    expect(await cartPage.isProductInCart(TEST_DATA.productNames[0])).toBe(true);
+    expect(await cartPage.isProductInCart(TEST_DATA.productNames[1])).toBe(true);
+
+
     // Verify list length matches data
     const count = await cartPage.cartItems.count();
     expect(count).toBe(TEST_DATA.products.length);
