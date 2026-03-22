@@ -22,7 +22,7 @@ export class CartPage {
    * Verifies if a specific product name exists in the cart list.
    * @param productName - The visible name of the product.
    */
-  async isProductInCart(productName: string) {
-    return this.page.locator(`.inventory_item_name:has-text("${productName}")`);
+  async isProductInCart(productName: string): Promise<boolean> {
+    return await this.page.locator(`[data-test="inventory-item-name"]:has-text("${productName}")`).isVisible();
   }
 }
