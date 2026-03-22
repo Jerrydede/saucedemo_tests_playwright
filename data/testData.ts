@@ -20,6 +20,17 @@ export const TEST_DATA = {
     'sauce-labs-onesie',
     'test.allthethings()-t-shirt-(red)'
   ],
+
+  // Unique names for the products
+  productNames: [
+    'Sauce Labs Backpack',
+    'Sauce Labs Bike Light',
+    'Sauce Labs Bolt T-Shirt',
+    'Sauce Labs Fleece Jacket',
+    'Sauce Labs Onesie',
+    'Test.allTheThings() T-Shirt (Red)'
+  ],
+
   // Centralized customer data
   customer: {
     firstName: 'Max',
