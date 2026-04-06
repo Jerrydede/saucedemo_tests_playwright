@@ -28,7 +28,7 @@ test.describe('Authentication Regression Test Suite', () => {
    * REG-01: Verify successful login with valid credentials (Data Driven)
    */
   for (const username of validUsers) {
-    test(`should login successfully with ${username}`, async ({ page }) => {
+    test(`should login successfully with ${username} @smoke`, async ({ page }) => {
       await loginPage.login(username, TEST_DATA.password);
       // Verify successful redirection to inventory
       await expect(page).toHaveURL(/.*inventory.html/);
@@ -38,7 +38,7 @@ test.describe('Authentication Regression Test Suite', () => {
   /**
    * REG-02: Ensure account security by verifying locked_out status
    */
-  test('should show error for locked_out_user', async ({ page }) => {
+  test('should show error for locked_out_user', {tag: '@smoke'}, async ({ page }) => {
     await loginPage.login(TEST_DATA.users.lockedOut, TEST_DATA.password);
     
     await expect(loginPage.errorMessage).toBeVisible();
