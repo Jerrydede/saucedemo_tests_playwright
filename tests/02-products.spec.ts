@@ -28,7 +28,8 @@ test.describe('Product Catalog Regression', () => {
    * REG-07: Verify the full cycle of adding and removing an item.
    */
   test('should add and then remove an item from the cart', async () => {
-    const productKey = 'sauce-labs-backpack';
+    //const productKey = 'sauce-labs-backpack';
+    const productKey = TEST_DATA.products[0];
 
     // Step 1: Add item and verify badge count
     await inventoryPage.addItemAndGetPrice(productKey);
